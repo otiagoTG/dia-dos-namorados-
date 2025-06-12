@@ -7,26 +7,61 @@
   <style>
     body {
       margin: 0;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      white-space: nowrap;
-      height: 100vh;
+      padding: 0;
       background-color: #000;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
     }
     .slide {
-      display: inline-block;
-      height: 100vh;
       width: 100vw;
+      height: 100vh;
+      overflow: hidden;
     }
     .slide img {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
     }
+    .button-container {
+      margin: 20px 0;
+    }
+    button {
+      background-color: #ff3366;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e0295c;
+    }
+    #pagina2 {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
   </style>
+  <script>
+    function mostrarSegundaParte() {
+      document.getElementById('pagina2').style.display = 'block';
+      document.getElementById('btnVer').style.display = 'none';
+    }
+  </script>
 </head>
 <body>
   <div class="slide"><img src="pagina1.jpg" alt="Mensagem parte 1"></div>
-  <div class="slide"><img src="pagina2.jpg" alt="Mensagem parte 2"></div>
+  <div class="button-container">
+    <button id="btnVer" onclick="mostrarSegundaParte()">Ver segunda parte</button>
+  </div>
+  <div class="slide" id="pagina2">
+    <img src="pagina2.jpg" alt="Mensagem parte 2">
+  </div>
 </body>
 </html>
